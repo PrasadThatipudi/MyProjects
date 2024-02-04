@@ -33,19 +33,20 @@ void main()
 
 	fclose(fpWeatherReport);
 
-	char* token = strtok(WeatherData, ":");
+	char* Temperature = strtok(WeatherData, ":");
 
-	while (token != NULL)
+	while (Temperature != NULL)
 	{
 		if (strcmp("{\"temp\"", token) == 0)
 		{
-			token = strtok(NULL, ",");
-			printf("\nTemparature: %s %cC\n", token, 248);
-			token = NULL;
+			Temperature = strtok(NULL, ",");
+			printf("\nCity name:%s\n", CityName);
+			printf("Temperature: %s %cC\n", Temperature, 248);
+			Temperature = NULL;
 		}
 		else
 		{
-			token = strtok(NULL, ":");
+			Temperature = strtok(NULL, ":");
 		}
 	}
 }	
